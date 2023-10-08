@@ -1,0 +1,18 @@
+#container {
+  border: 1px solid gray;
+}
+strong {
+  font-size: 36px;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  width: 60px;
+}
+.city {
+  font-size: 24px;
+}
+/* sup{
+  font-size: 10px;
+} */
