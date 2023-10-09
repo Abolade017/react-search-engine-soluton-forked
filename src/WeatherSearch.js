@@ -78,49 +78,50 @@ export default function WeatherSearch() {
 
   // if (loaded) {
   return (
-    <div className="border border-secondary px-4 container" id="container">
-      <div className="d-flex ">
-        <a href="/">Lisbon</a>
-        <a href="/" className="px-4">
-          Paris
-        </a>
-        <a href="/">Sydney</a>
-        <a href="/" className="px-4">
-          SanFrancisco
-        </a>
-      </div>
-      {form}
-      <div className="">
-        <div className="text-capitalize city text-secondary">
-          {weather.city}
+    <div>
+      <div className="border border-secondary px-4 container" id="container">
+        <div className="d-flex ">
+          <a href="/">Lisbon</a>
+          <a href="/" className="px-4">
+            Paris
+          </a>
+          <a href="/">Sydney</a>
+          <a href="/" className="px-4">
+            SanFrancisco
+          </a>
         </div>
-        <div className="text-secondary">{weather.date}</div>
-        <div className="text-secondary">{weather.description}</div>
-      </div>
-      <div className="row">
-        <div className="col-6">
-          <div className="d-flex ">
-            <div>
-              <img src={weather.icon} alt={weather.description} />
-            </div>
-            <div className="d-flex">
+        {form}
+        <div className="">
+          <div className="text-capitalize city text-secondary">
+            {weather.city}
+          </div>
+          <div className="text-secondary">{weather.date}</div>
+          <div className="text-secondary">{weather.description}</div>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <div className="d-flex ">
               <div>
-                <strong className=""> {Math.round(weather.temperature)}</strong>
+                <img src={weather.icon} alt={weather.description} />
               </div>
-              <div>°C</div>
+              <div className="d-flex">
+                <div>
+                  <strong className=""> {Math.round(weather.temperature)}</strong>
+                </div>
+                <div>°C</div>
+              </div>
             </div>
           </div>
+          <div className="col-6">
+            <ul>
+              <li className="text-secondary">
+                Precipitation: {weather.humidity}%
+              </li>
+              <li className="text-secondary">Wind: {weather.wind}km/h</li>
+            </ul>
+          </div>
         </div>
-        <div className="col-6">
-          <ul>
-            <li className="text-secondary">
-              Precipitation: {weather.humidity}%
-            </li>
-            <li className="text-secondary">Wind: {weather.wind}km/h</li>
-          </ul>
-        </div>
-      </div>
-      {/* <ul>
+        {/* <ul>
         <li>Temperature: {Math.round(weather.temperature)}°C</li>
         <li>Description: {weather.description}</li>
         <li>Humidity: {weather.humidity}%</li>
@@ -129,6 +130,9 @@ export default function WeatherSearch() {
           <img src={weather.icon} alt={weather.description} />
         </li>
       </ul> */}
+      </div>
+
+      <footer><div>coded by <a href="https://github.com/Abolade017/react-search-engine-soluton-forked.git" className="text-primary">Adeola Tawakalitu</a>, from she Codes</div> </footer>
     </div>
   );
   // } else {
