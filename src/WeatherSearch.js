@@ -5,9 +5,30 @@ export default function WeatherSearch() {
   const [city, setCity] = useState("");
   // const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let time = new Date();
 
+  function formatDate(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    if (hours < 10) {
+      hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+
+    let days = [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+    ];
+    let day = days[date.getDay()];
+    return `${day} ${hours}:${minutes}`;
+  }
   function displayWeather(response) {
     // setLoaded(true);
     console.log(response.data);
@@ -17,7 +38,8 @@ export default function WeatherSearch() {
       humidity: response.data.main.humidity,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       description: response.data.weather[0].main,
-      city: response.data.name
+      city: response.data.name,
+      date: formatDate(response.data.dt * 1000) + "minutes"
     });
   }
 
@@ -72,8 +94,8 @@ export default function WeatherSearch() {
         <div className="text-capitalize city text-secondary">
           {weather.city}
         </div>
+        <div className="text-secondary">{weather.date}</div>
         <div className="text-secondary">{weather.description}</div>
-        <div></div>
       </div>
       <div className="row">
         <div className="col-6">
